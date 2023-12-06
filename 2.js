@@ -31,21 +31,26 @@ function buildGame(rawGame) {
 
 function buildTirageFromRawtxt(rawTirages) {
     const colors = rawTirages.split(",");
-    let blue = 0;
-    let red = 0;
-    let green = 0;
+    // let blue = 0;
+    // let red = 0;
+    // let green = 0;
 
-    colors.forEach(color => {
-        const data = color.trim().split(" ");
-        switch(data[1]) {
-            case "blue": blue += parseInt(data[0]);
-                break;
-            case "red": red += parseInt(data[0]);
-                break;
-            case "green": green += parseInt(data[0]);
-                break;
-        }
-    })
+    // colors.forEach(color => {
+    //     const data = color.trim().split(" ");
+    //     switch(data[1]) {
+    //         case "blue": blue += parseInt(data[0]);
+    //             break;
+    //         case "red": red += parseInt(data[0]);
+    //             break;
+    //         case "green": green += parseInt(data[0]);
+    //             break;
+    //     }
+    // });
+
+    const { blue, red, green } = colors.reduce((acc, color) => {
+        const data = color.trim().split(' ');
+        return { ...acc, [data[1]]: acc[data[1]] + data[0] };
+      }, { blue: 0, red: 0, green: 0 });
 
     return new Tirage(blue, red, green);
 }

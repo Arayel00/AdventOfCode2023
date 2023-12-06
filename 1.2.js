@@ -7,11 +7,11 @@ let regex = /\d/g;
 let getFirstAndLastNum = word => {
     occurences = word.match(regex);
     return parseInt(occurences[0] + occurences[occurences.length-1], 10);
-}
+};
 
 let result = data
     .map(getFirstAndLastNum)
-    .reduce((acc, cur) => acc + cur);
+    .reduce((acc, cur) => acc + cur, 0);
 
 console.log(result);
 
@@ -20,8 +20,7 @@ console.log(result);
 const litteralNumbers = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
 function reverseString(word) {
-    const a = word.split("").reverse().join("");
-    return a;
+    return word.split("").reverse().join("");
 }
 
 const regex1 = new RegExp(`(?:${litteralNumbers.join("|")}|\\d)`, "g");
@@ -48,7 +47,7 @@ const getNumberFromWord = num => {
         case 'nine': return "9";
             break;
     }
-}
+};
 
 getFirstAndLastNum = word => {
     const fisrtAndLast = [word.match(regex1)[0], reverseString(reverseString(word).match(regex2)[0])];
@@ -62,10 +61,10 @@ getFirstAndLastNum = word => {
         }
     }
     return parseInt(numBuild, 10);
-}
+};
 
 result = data
     .map(getFirstAndLastNum)
-    .reduce((acc, cur) => acc + cur);
+    .reduce((acc, cur) => acc + cur, 0);
 
 console.log(result);

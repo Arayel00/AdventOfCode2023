@@ -6,6 +6,6 @@ const isNumber = char => !Number.isNaN(parseInt(char, 10));
 
 const result = inputs
 .map(word => parseInt(word.split('').find(isNumber) + word.split('').findLast(isNumber), 10))
-.reduce((acc, current) => acc + current);
+.reduce((acc, current) => acc + current, 0);
 
 console.log(result);
