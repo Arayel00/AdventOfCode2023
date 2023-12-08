@@ -48,8 +48,8 @@ function buildTirageFromRawtxt(rawTirages) {
     // });
 
     const { blue, red, green } = colors.reduce((acc, color) => {
-        const data = color.trim().split(' ');
-        return { ...acc, [data[1]]: acc[data[1]] + data[0] };
+        const [value, key] = color.trim().split(' ');
+        return { ...acc, [key]: acc[key] + value };
       }, { blue: 0, red: 0, green: 0 });
 
     return new Tirage(blue, red, green);
