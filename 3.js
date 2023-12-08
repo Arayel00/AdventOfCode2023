@@ -58,3 +58,19 @@ for(let y=0; y<inputs.length; y++) {
 console.log(result);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+result = 0;
+
+for(let y=0; y<inputs.length; y++) {
+    for(let x=0; x<inputs[y].length; x++) {
+        if(isSymbol(inputs[y][x])) {
+            const numbers = getNumberArround(x, y);
+            
+            if(numbers.length === 2) {
+                result += numbers[0] * numbers[1];
+            }
+        }
+    }
+}
+
+console.log(result);
